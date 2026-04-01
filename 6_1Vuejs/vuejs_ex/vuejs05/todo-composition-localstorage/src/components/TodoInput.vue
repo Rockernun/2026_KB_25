@@ -10,13 +10,13 @@
 
 <script setup>
 // Vue의 ref를 가져온다.
-import { ref } from 'vue';
+import { ref } from "vue";
 
 // 부모로 보낼 이벤트를 선언한다.
-const emit = defineEmits(['add-todo']);
+const event = defineEmits("add-todo");
 
 // inputMsg는 사용자가 입력하는 텍스트를 저장하는 반응형 변수이다.
-const inputMsg = ref('');
+const inputMsg = ref("");
 
 // addTodo는 현재 입력값을 부모에게 전달하고 입력창을 초기화한다.
 const addTodo = () => {
@@ -24,10 +24,10 @@ const addTodo = () => {
   if (!trimmedMsg) return;
 
   //add-todo 이벤트로 정리된 입력값을 부모에게 전달한다.
-  emit('add-todo', trimmedMsg);
+  emit("add-todo", trimmedMsg);
 
   //입력값이 전달이 완료되었으므로 입력창을 비운다.
-  inputMsg.value = '';
+  inputMsg.value = "";
 };
 </script>
 
@@ -40,7 +40,15 @@ const addTodo = () => {
       placeholder="할 일을 입력하세요."
       @keydown.enter="addTodo"
     />
+    <input
+      v-model="inputMsg"
+      type="text"
+      class="todo-input"
+      placeholder="할 일을 입력하세요."
+      @keydown.enter="addTodo"
+    />
 
+    <button class="todo-add-btn" @click="addTodo">등록</button>
     <button class="todo-add-btn" @click="addTodo">등록</button>
   </div>
 </template>
