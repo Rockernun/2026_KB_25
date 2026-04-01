@@ -1,8 +1,13 @@
-<template>
-  <div class="container"></div>
-</template>
+<script setup>
+import Header from "./components/Header.vue";
+</script>
 
-<script setup></script>
+<template>
+  <div class="container">
+    <Header />
+    <RouterView />
+  </div>
+</template>
 
 <style>
 .container {
