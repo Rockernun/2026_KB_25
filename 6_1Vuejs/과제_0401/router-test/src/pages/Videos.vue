@@ -1,7 +1,11 @@
 <template>
-  <div class="card card-body"></div>
+  <div class="card card-body">
+    <h2>Videos 페이지입니다...</h2>
+  </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "Videos",
+};
 </script>
